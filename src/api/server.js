@@ -65,7 +65,7 @@ const notificationTemplates = [
 new Server({
 	routes() {
 		this.namespace = 'fakeApi'
-		this.timing = 2000
+		// this.timing = 2000
 
 		this.resource('users')
 		this.resource('posts')
@@ -111,7 +111,7 @@ new Server({
 
 			// Create N random notifications. We won't bother saving these
 			// in the DB - just generate a new batch and return them.
-			const notifications = [...Array(numNotifications)].map(() => {
+			const notifications = [ ...Array(numNotifications) ].map(() => {
 				const user = randomFromArray(schema.db.users)
 				const template = randomFromArray(notificationTemplates)
 				return {
